@@ -1,0 +1,110 @@
+:root {
+    font-size: 16px;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: black;
+    color: white;
+  }
+  
+  .sidebar {
+    width: 25vw;
+    height: 100vh;
+    background: linear-gradient(180deg, black 55%, #CF6E9F 100%);
+    border-right: 0.125rem solid white;
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .logo-container {
+    display: inline-flex;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .logo-text {
+    color: #9776E1;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    line-height: 1;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .logo-icon{
+    width: 1.5rem;
+    height: 2.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    margin: 0.75rem 0;
+    gap: 0.50rem;
+    padding-left: 0.5rem;
+  }
+  
+  .nav-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .divider {
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    margin: 0.5rem 0;
+  }
+  
+  .menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: black;
+    border: none;
+    border-radius: 0.5rem;
+    z-index: 1001;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 70vw;
+      transition: left 0.3s ease;
+      height: 100vh;
+    }
+  
+    .sidebar.active {
+      left: 0;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+
+  .logo-container{
+    margin-top: 0.5rem;
+  }
+  }
+  
