@@ -1,110 +1,662 @@
 :root {
-    font-size: 16px;
-  }
-  
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  display: flex;
+}
+
+.sidebar {
+  width: 25vw;
+  height: auto;
+  background: linear-gradient(180deg, black 55%, #CF6E9F 100%);
+  border-right: 0.125rem solid white;
+  padding: 1rem 1rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: inline-flex;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.logo-text {
+  color: #9776E1;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  line-height: 1;
+  margin-left: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.logo-icon{
+  width: 1.5rem;
+  height: 2.5rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: -1rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  margin: 0.75rem 0;
+  gap: 0.50rem;
+  padding-left: 0.5rem;
+}
+
+.nav-item.active {
+  color: #CF6E9F;
+  border-radius: 8px;
+}
+
+.nav-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  margin: 0.5rem 0;
+}
+
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: black;
+  border: none;
+  border-radius: 0.5rem;
+  z-index: 1001;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#homeSection {
+  width: 75vw;
+  padding: 2rem;
+  background-color: #0d0d0d;
+  display: flex;
+  flex-direction: column; /* Changed to column for better stacking */
+  align-items: center; /* Align items to the center */
+}
+
+.home-heading {
+  width: 100%; /* Make heading span the full width */
+  text-align: center;
+  margin-bottom: 2rem; /* Add some space below the heading */
+}
+
+.home-heading h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom right, #0d0d0d, #1a1a1a);
+  width: 75vw; /* Match homeSection width */
+}
+
+.upload-container {
+  padding: 2.5rem 3rem;
+  border: 2px solid whitesmoke;
+  border-radius: 1.25rem;
+  width: 100%;
+  max-width: 600px;
+  color: white;
+  margin-bottom: 2rem; /* Add some space below the upload container */
+}
+
+.upload-container h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(to right, #CF6E9F, #9776E1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #aaa;
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"] {
+  padding: 0.75rem 1rem;
+  background-color: #121212;
+  border: 1px solid #555;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  transition: border 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="file"]:focus {
+  border-color: #CF6E9F;
+  outline: none;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"] {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.upload-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, #CF6E9F, #9776E1);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  align-self: center;
+  box-shadow: 0 4px 15px rgba(207, 110, 159, 0.4);
+}
+
+.upload-btn:hover {
+  background: linear-gradient(to right, #9776E1, #CF6E9F);
+  box-shadow: 0 6px 20px rgba(207, 110, 159, 0.6);
+}
+
+.uploaded-track {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.uploaded-track h3 {
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+#upload-section {
+  margin-bottom: 20px;
+}
+
+/* Song list container */
+#songList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Individual song card */
+.song-card {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Song title */
+.song-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Artist */
+.song-card p {
+  margin: 6px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Audio player spacing */
+.song-card audio {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.play-songs-container {
+  margin-top: 2rem; /* Add some space between the upload and play sections */
+  padding: 1.5rem 2rem;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 600px;
+  color: white;
+}
+
+.play-songs-container h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(to right, #9776E1, #CF6E9F);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  padding: 0.5rem 0;
+}
+
+.uploaded-track {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  border-radius: 0.75rem;
+  border: 1px solid #333;
+  display: flex; /* Arrange title, artist, and audio in a row by default */
+  flex-direction: column; /* Stack title, artist, and audio vertically for a list-like appearance */
+  gap: 0.5rem; /* Add some spacing between the elements */
+}
+
+.uploaded-track h3#uploadedTitle {
+  font-size: 1.2rem;
+  color: #eee;
+  margin: 0;
+}
+
+.uploaded-track audio#uploadedAudio {
+  width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.search-section,
+.create-playlist-section,
+.your-playlists-section {
+  width: 75vw;
+  height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #0d0d0d, #1a1a1a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  background-color: #121212;
+  border: 1px solid #555;
+  border-radius: 0.5rem 0 0 0.5rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+#searchButton {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, #CF6E9F, #9776E1);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 0 0.5rem 0.5rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(207, 110, 159, 0.4);
+}
+
+#searchButton:hover {
+  background: linear-gradient(to right, #9776E1, #CF6E9F);
+  box-shadow: 0 4px 10px rgba(207, 110, 159, 0.6);
+}
+
+#searchResults {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  border-radius: 0.75rem;
+  border: 1px solid #333;
+}
+
+.song-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #333;
+}
+
+.song-item:last-child {
+  border-bottom: none;
+}
+
+.album-art {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.song-info {
+  flex-grow: 1;
+}
+
+.song-title {
+  font-weight: bold;
+  color: #eee;
+  margin-bottom: 0.25rem;
+}
+
+.artist-album {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+#searchResults.empty {
+  text-align: center;
+  color: #aaa;
+}
+
+.song-item .controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.song-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #333;
+  justify-content: space-between; /* Push info to left, controls to right */
+}
+
+.song-item:last-child {
+  border-bottom: none;
+}
+
+.album-art {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.song-info {
+  flex-grow: 1;
+}
+
+.song-title {
+  font-weight: bold;
+  color: #eee;
+  margin-bottom: 0.25rem;
+}
+
+.artist-album {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.song-item .controls {
+  display: flex;
+  flex-direction: column; /* Arrange buttons in a column */
+  gap: 0.25rem; /* Smaller gap between buttons */
+}
+
+.song-item .controls button {
+  padding: 0.4rem 0.6rem; /* Slightly smaller padding */
+  border: 1px solid #555; /* Add a border */
+  border-radius: 5px;
+  color: white;
+  font-size: 0.75rem; /* Even smaller text */
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: #1a1a1a; /* Darker background for buttons */
+}
+
+.song-item .controls .play-button {
+  background-color: transparent; /* No specific background for play */
+  color: #9776E1; /* Use your theme color */
+  border-color: #9776E1;
+}
+
+.song-item .controls .play-button:hover {
+  background-color: rgba(151, 118, 225, 0.1);
+}
+
+.song-item .controls .add-to-playlist-button {
+  background-color: transparent; /* No specific background for add */
+  color: #CF6E9F; /* Use your theme color */
+  border-color: #CF6E9F;
+}
+
+.song-item .controls .add-to-playlist-button:hover {
+  background-color: rgba(207, 110, 159, 0.1);
+}
+
+.song-item .controls button i {
+  font-size: 0.8rem; /* Adjust icon size */
+}
+
+/* Style for the playlist list */
+#playlistsList {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+#playlistsList li {
+  padding: 0.75rem 1rem;
+  background-color: #1a1a1a;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid #333;
+  color: #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: space-between; /* For potential delete button later */
+  align-items: center;
+}
+
+#playlistsList li:hover {
+  background-color: #222;
+}
+
+#playlistsList li button.remove-playlist {
+  background: none;
+  border: none;
+  color: #d9534f; /* Red color for remove */
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.create-playlist-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.create-playlist-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-playlist-form .form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #aaa;
+}
+
+.create-playlist-form .form-group input[type="text"] {
+  padding: 0.75rem 1rem;
+  background-color: #121212;
+  border: 1px solid #555;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.create-playlist-form .create-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, #CF6E9F, #9776E1);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(207, 110, 159, 0.4);
+}
+
+.create-playlist-form .create-btn:hover {
+  background: linear-gradient(to right, #9776E1, #CF6E9F);
+  box-shadow: 0 6px 20px rgba(207, 110, 159, 0.6);
+}
+
+#playlistMessage {
+  margin-top: 1rem;
+  color: #9776E1;
+  font-weight: bold;
+  text-align: center;
+}
+
+.your-playlists-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+#playlistsList {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+#playlistsList li {
+  padding: 0.75rem 1rem;
+  background-color: #1a1a1a;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid #333;
+  color: #eee;
+}
+
+#yourPlaylistsSection p {
+  color: #aaa;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
   body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: black;
-    color: white;
-  }
-  
-  .sidebar {
-    width: 25vw;
-    height: 100vh;
-    background: linear-gradient(180deg, black 55%, #CF6E9F 100%);
-    border-right: 0.125rem solid white;
-    padding: 1rem 1rem;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 1000;
-  }
-  
-  .logo-container {
-    display: inline-flex;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-  }
-  
-  .logo-text {
-    color: #9776E1;
-    font-size: 2rem;
-    font-weight: 600;
-    text-transform: capitalize;
-    line-height: 1;
-    margin-left: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  
-  .logo-icon{
-    width: 1.5rem;
-    height: 2.5rem;
+      flex-direction: column;
   }
 
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .nav-item {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    color: white;
-    text-decoration: none;
-    margin: 0.75rem 0;
-    gap: 0.50rem;
-    padding-left: 0.5rem;
-  }
-  
-  .nav-icon {
-    width: 1rem;
-    height: 1rem;
-  }
-  
-  .divider {
-    height: 1px;
-    width: 100%;
-    background-color: white;
-    margin: 0.5rem 0;
-  }
-  
-  .menu-toggle {
-    display: none;
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    width: 2rem;
-    height: 2rem;
-    background-color: black;
-    border: none;
-    border-radius: 0.5rem;
-    z-index: 1001;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  @media (max-width: 768px) {
-    .sidebar {
+  .sidebar {
       position: fixed;
       top: 0;
       left: -100%;
       width: 70vw;
       transition: left 0.3s ease;
       height: 100vh;
-    }
-  
-    .sidebar.active {
-      left: 0;
-    }
-  
-    .menu-toggle {
-      display: block;
-    }
+      border-right: none;
+      border-bottom: 0.125rem solid white;
+  }
 
-  .logo-container{
-    margin-top: 0.5rem;
+  .sidebar.active {
+      left: 0;
   }
+
+  .menu-toggle {
+      display: block;
   }
-  
+
+  .main-content,.home-heading,
+  .search-section,
+  .create-playlist-section,
+  .your-playlists-section {
+      width: 100vw;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-left: 0;
+      height: auto;
+  }
+
+  #homeSection {
+      padding-top: 4rem; /* Adjust for menu toggle height */
+  }
+
+  .home-heading {
+      left: 0;
+  }
+
+  .upload-container,
+  #searchResults,
+  .create-playlist-form,
+  #playlistsList {
+      max-width: 95%;
+  }
+}

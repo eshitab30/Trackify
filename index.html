@@ -7,39 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+    <script src="https://unpkg.com/lucide@latest"></script> </head>
 
 <body>
     <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
     <div class="sidebar">
         <div class="logo-container">
-            <div>
-                <img class="logo-icon" src="assets/trackify_logo.png" alt="">
-            </div>
+            <img class="logo-icon" src="assets/trackify_logo.png" alt="">
             <div class="logo-text">TRACKIFY</div>
         </div>
 
         <nav class="nav-links">
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item active" id="navHome">
                 <i data-lucide="home" class="nav-icon"></i>
                 <span>Home</span>
             </a>
             <div class="divider"></div>
 
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" id="navSearch">
                 <i data-lucide="search" class="nav-icon"></i>
                 <span>Search</span>
             </a>
             <div class="divider"></div>
 
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" id="navCreatePlaylistLink">
                 <i data-lucide="plus-square" class="nav-icon"></i>
                 <span>Create Playlist</span>
             </a>
             <div class="divider"></div>
 
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" id="navPlaylistsLink">
                 <i data-lucide="list-music" class="nav-icon"></i>
                 <span>Your Playlists</span>
             </a>
@@ -47,12 +45,130 @@
         </nav>
     </div>
 
+    <main class="main-content">
+        <section class="home-section" id="homeSection">
+            <div class="home-heading">
+                <h1>Welcome to Trackify</h1>
+            </div>
+            <section class="upload-container">
+                <h3>Upload Your Fav Songs</h3>
+                <form class="upload-form">
+                    <div class="form-group">
+                        <label for="songTitle">Song Title</label>
+                        <input type="text" id="songTitle" placeholder="Enter song title">
+                    </div>
+                    <div class="form-group">
+                        <label for="songFile">Choose File</label>
+                        <input type="file" id="songFile" accept="audio/*">
+                    </div>
+                    <button type="submit" class="upload-btn">Upload</button>
+                </form>
+            </section>
+
+            <section class="play-songs-container">
+                <h3>Play Your Favourite Songs</h3>
+                <div id="uploadedTrack" class="uploaded-track" style="display: none;">
+                    <h3 id="uploadedTitle"></h3>
+                    <p id="uploadedArtist"></p>
+                    <audio id="uploadedAudio" controls></audio>
+                </div>
+            </section>
+        </section>
+
+        <section class="search-section hidden" id="searchSection">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Enter song title or artist">
+                <button id="searchButton">Search</button>
+            </div>
+            <div id="searchResults">
+            </div>
+        </section>
+
+        <section class="create-playlist-section hidden" id="createPlaylistSection">
+            <h2>Create New Playlist</h2>
+            <form class="create-playlist-form">
+                <div class="form-group">
+                    <label for="playlistName">Playlist Name:</label>
+                    <input type="text" id="playlistName" placeholder="Enter playlist name">
+                </div>
+                <button type="submit" class="create-btn">Create</button>
+            </form>
+            <div id="playlistMessage"></div>
+        </section>
+
+        <section class="your-playlists-section hidden" id="yourPlaylistsSection">
+            <h2>Your Playlists</h2>
+            <ul id="playlistsList">
+                <li>Playlist 1</li>
+                <li>Another Playlist</li>
+                </ul>
+            <p>No playlists yet.</p>
+        </section>
+
+        </main>
+
     <script>
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('active');
         }
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navHome = document.getElementById('navHome');
+            const navSearch = document.getElementById('navSearch');
+            const navCreatePlaylistLink = document.getElementById('navCreatePlaylistLink');
+            const navPlaylistsLink = document.getElementById('navPlaylistsLink');
+
+            const homeSection = document.getElementById('homeSection');
+            const searchSection = document.getElementById('searchSection');
+            const createPlaylistSection = document.getElementById('createPlaylistSection');
+            const yourPlaylistsSection = document.getElementById('yourPlaylistsSection');
+
+            const allSections = {
+                home: homeSection,
+                search: searchSection,
+                createPlaylist: createPlaylistSection,
+                playlists: yourPlaylistsSection
+            };
+
+            const navLinks = {
+                navHome: 'home',
+                navSearch: 'search',
+                navCreatePlaylistLink: 'createPlaylist',
+                navPlaylistsLink: 'playlists'
+            };
+
+            const hideAllSections = () => {
+                for (const section in allSections) {
+                    allSections[section].classList.add('hidden');
+                }
+                document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            };
+
+            // Initially hide all sections and show the home section
+            hideAllSections();
+            homeSection.classList.remove('hidden');
+            navHome.classList.add('active');
+
+            for (const linkId in navLinks) {
+                const linkElement = document.getElementById(linkId);
+                const sectionId = navLinks[linkId];
+                const sectionElement = allSections[sectionId];
+
+                if (linkElement && sectionElement) {
+                    linkElement.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        hideAllSections();
+                        sectionElement.classList.remove('hidden');
+                        linkElement.classList.add('active');
+                    });
+                }
+            }
+        });
     </script>
+    <script type="module" src="js/upload.js"></script>
+    <script type="module" src="js/search.js"></script>
+    <script type="module" src="js/playlists.js"></script>
 </body>
 
 </html>
