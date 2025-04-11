@@ -431,7 +431,7 @@ body {
   margin-bottom: 1rem;
   padding: 0.5rem;
   border-bottom: 1px solid #333;
-  justify-content: space-between; /* Push info to left, controls to right */
+  justify-content: space-between; 
 }
 
 .song-item:last-child {
@@ -463,27 +463,26 @@ body {
 
 .song-item .controls {
   display: flex;
-  flex-direction: column; /* Arrange buttons in a column */
-  gap: 0.25rem; /* Smaller gap between buttons */
+  flex-direction: column; 
+  gap: 0.25rem; 
 }
 
 .song-item .controls button {
-  padding: 0.4rem 0.6rem; /* Slightly smaller padding */
-  border: 1px solid #555; /* Add a border */
+  padding: 0.4rem 0.6rem; 
+  border: 1px solid #555; 
   border-radius: 5px;
   color: white;
-  font-size: 0.75rem; /* Even smaller text */
+  font-size: 0.75rem; 
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease;
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  background-color: #1a1a1a; /* Darker background for buttons */
+  background-color: #1a1a1a; 
 }
 
 .song-item .controls .play-button {
-  background-color: transparent; /* No specific background for play */
-  color: #9776E1; /* Use your theme color */
+  background-color: transparent; 
   border-color: #9776E1;
 }
 
@@ -492,8 +491,8 @@ body {
 }
 
 .song-item .controls .add-to-playlist-button {
-  background-color: transparent; /* No specific background for add */
-  color: #CF6E9F; /* Use your theme color */
+  background-color: transparent; 
+  color: #CF6E9F; 
   border-color: #CF6E9F;
 }
 
@@ -502,10 +501,9 @@ body {
 }
 
 .song-item .controls button i {
-  font-size: 0.8rem; /* Adjust icon size */
+  font-size: 0.8rem; 
 }
 
-/* Style for the playlist list */
 #playlistsList {
   list-style: none;
   padding: 0;
@@ -523,7 +521,7 @@ body {
   cursor: pointer;
   transition: background-color 0.2s ease;
   display: flex;
-  justify-content: space-between; /* For potential delete button later */
+  justify-content: space-between; 
   align-items: center;
 }
 
@@ -534,7 +532,7 @@ body {
 #playlistsList li button.remove-playlist {
   background: none;
   border: none;
-  color: #d9534f; /* Red color for remove */
+  color: #d9534f;
   cursor: pointer;
   font-size: 0.8rem;
   margin-left: 0.5rem;
@@ -648,8 +646,8 @@ body {
 }
 
 #playlistsList li button.view-playlist {
-  color: #9776E1; /* Theme color */
-  border-color: #9776E1; /* Theme color */
+  color: #9776E1; 
+  border-color: #9776E1; 
 }
 
 #playlistsList li button.view-playlist:hover {
@@ -657,8 +655,8 @@ body {
 }
 
 #playlistsList li button.play-playlist {
-  color: #5cb85c; /* Green */
-  border-color: #5cb85c; /* Green */
+  color: #5cb85c;
+  border-color: #5cb85c; 
 }
 
 #playlistsList li button.play-playlist:hover {
@@ -706,7 +704,7 @@ body {
   }
 
   #homeSection {
-      padding-top: 4rem; /* Adjust for menu toggle height */
+      padding-top: 4rem; 
   }
 
   .home-heading {
