@@ -225,14 +225,12 @@ body {
   margin-bottom: 20px;
 }
 
-/* Song list container */
 #songList {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Individual song card */
 .song-card {
   padding: 12px 16px;
   border: 1px solid #ccc;
@@ -241,7 +239,6 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Song title */
 .song-card h4 {
   margin: 0;
   font-size: 1rem;
@@ -249,21 +246,19 @@ body {
   color: #333;
 }
 
-/* Artist */
 .song-card p {
   margin: 6px 0;
   font-size: 0.9rem;
   color: #666;
 }
 
-/* Audio player spacing */
 .song-card audio {
   margin-top: 8px;
   width: 100%;
 }
 
 .play-songs-container {
-  margin-top: 2rem; /* Add some space between the upload and play sections */
+  margin-top: 2rem;
   padding: 1.5rem 2rem;
   border: 1px solid whitesmoke;
   border-radius: 1rem;
@@ -290,9 +285,9 @@ body {
   background-color: #1a1a1a;
   border-radius: 0.75rem;
   border: 1px solid #333;
-  display: flex; /* Arrange title, artist, and audio in a row by default */
-  flex-direction: column; /* Stack title, artist, and audio vertically for a list-like appearance */
-  gap: 0.5rem; /* Add some spacing between the elements */
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.5rem;
 }
 
 .uploaded-track h3#uploadedTitle {
@@ -376,6 +371,24 @@ body {
 
 .song-item:last-child {
   border-bottom: none;
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.notification.show {
+  opacity: 1;
 }
 
 .album-art {
@@ -582,10 +595,9 @@ body {
 }
 
 .your-playlists-section h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: white;
+  color: #eee;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 #playlistsList {
@@ -593,6 +605,7 @@ body {
   padding: 0;
   width: 100%;
   max-width: 400px;
+  margin: 0 auto; /* Center the playlist list */
 }
 
 #playlistsList li {
@@ -602,14 +615,61 @@ body {
   margin-bottom: 0.75rem;
   border: 1px solid #333;
   color: #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#yourPlaylistsSection p {
+#playlistsList li:hover {
+  background-color: #222;
+}
+
+#playlistsList li .playlist-name {
+  flex-grow: 1;
+}
+
+#playlistsList li .controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+#playlistsList li button {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: white;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  background-color: transparent;
+}
+
+#playlistsList li button.view-playlist {
+  color: #9776E1; /* Theme color */
+  border-color: #9776E1; /* Theme color */
+}
+
+#playlistsList li button.view-playlist:hover {
+  background-color: rgba(151, 118, 225, 0.1);
+}
+
+#playlistsList li button.play-playlist {
+  color: #5cb85c; /* Green */
+  border-color: #5cb85c; /* Green */
+}
+
+#playlistsList li button.play-playlist:hover {
+  background-color: rgba(92, 184, 92, 0.1);
+}
+
+.your-playlists-section p.empty-message {
   color: #aaa;
   text-align: center;
   margin-top: 1rem;
 }
-
 @media (max-width: 768px) {
   body {
       flex-direction: column;
